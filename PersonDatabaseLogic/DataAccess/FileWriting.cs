@@ -1,8 +1,7 @@
-﻿using System;
+﻿using PersonDatabaseLogic.PersonLogic;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 
 namespace PersonDatabaseLogic.DataAccess
@@ -12,19 +11,26 @@ namespace PersonDatabaseLogic.DataAccess
         internal void SavePerson(Person p)
         {
             List<Person> people = GetPeople();
-            if (people.Count == 0)
+            p.Id = GetNewId(people);
+            people.Add(p);
+            SavePeople(people);
+        }
+
+        private int GetNewId(List<Person> people)
+        {
+            return people.Count == 0 ? 0 : people.OrderBy(x => x.Id).Last().Id + 1;
+        }
+
+        internal void DeletePerson(int id)
+        {
+            List<Person> people = GetPeople();
+            if (people.Where(x => x.Id == id).Count() > 0)
             {
-                p.Id = 0;
+                SavePeople(people.Where(x => x.Id != id).ToList());
             }
             else
             {
-                p.Id = people.OrderBy(x => x.Id).First().Id + 1;
-            }
-            people.Add(p);
-            using(StreamWriter sw = new StreamWriter(FileExtensions.GetSaveFile()))
-            {
-                sw.Write(people.ConvertToString());
-                Console.WriteLine(people.ConvertToString());
+                throw new PlayerNotFoundException($"Osoba s id:{id} nenalezena.");
             }
         }
 
@@ -41,7 +47,16 @@ namespace PersonDatabaseLogic.DataAccess
                 data = sr.ReadToEnd();
             }
 
-            return data == "" ? new List<Person>() : data.ConvertToPersonModels();
+            return data.ConvertToPersonModels();
         }
+
+        internal void SavePeople(List<Person> people)
+        {
+            using (StreamWriter sw = new StreamWriter(FileExtensions.GetSaveFile()))
+            {
+                sw.Write(people.Count == 0? "" : people.ConvertToString());
+            }
+        }
+
     }
 }

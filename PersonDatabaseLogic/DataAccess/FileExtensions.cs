@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PersonDatabaseLogic.PersonLogic;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -43,6 +44,11 @@ namespace PersonDatabaseLogic.DataAccess
 
         internal static List<Person> ConvertToPersonModels(this string peopleData)
         {
+            if(peopleData == "")
+            {
+                return new List<Person>();
+            }
+
             List<Person> output = new List<Person>();
             foreach (string data in peopleData.Split("|"))
             {
