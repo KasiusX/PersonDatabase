@@ -14,7 +14,7 @@ namespace PersonDatabaseConsoleUI
             while (!leave)
             {
                 Console.Clear();
-                Console.WriteLine("1.Přidat osobu\n2.Smazat osobu\n3.Vypsat osoby\n4.Odejít");
+                Console.WriteLine("1.Přidat osobu\n2.Odstranit osobu\n3.Vypsat osoby\n4.Odejít");
                 char choice = Console.ReadKey().KeyChar;
                 Console.Clear();
                 switch (choice)

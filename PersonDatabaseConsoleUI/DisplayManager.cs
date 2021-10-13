@@ -1,5 +1,6 @@
 ﻿using PersonDatabaseLogic;
 using PersonDatabaseLogic.DataAccess;
+using PersonDatabaseLogic.PersonLogic;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,7 +36,7 @@ namespace PersonDatabaseConsoleUI
             try
             {
                 personController.DeletePerson(Convert.ToInt32(id));
-                Console.WriteLine($"Osoba s id:{id} byla smazána");
+                Console.WriteLine($"Osoba s id:{id} byla odstraněna");
             }
             catch (PlayerNotFoundException e)
             {

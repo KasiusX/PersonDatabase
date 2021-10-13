@@ -25,6 +25,14 @@ namespace PersonDatabaseLogic.PersonLogic
             {
                 throw new ValidationException("Příjmení nesmí obsahovat znaky '|' a ':'.");
             }
+            else if (p.FirstName.Length < 2)
+            {
+                throw new ValidationException("Jméno musí mít minimálně dvě písmena");
+            }
+            else if (p.LastName.Length < 2)
+            {
+                throw new ValidationException("Přijmené musí mít minimálně dvě písmena");
+            }
             return true;
         }
 
