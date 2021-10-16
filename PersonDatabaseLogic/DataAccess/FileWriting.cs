@@ -30,7 +30,7 @@ namespace PersonDatabaseLogic.DataAccess
             }
             else
             {
-                throw new PlayerNotFoundException($"Osoba s id:{id} nenalezena.");
+                throw new PersonNotFoundException($"Osoba s id:{id} nenalezena.");
             }
         }
 

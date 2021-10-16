@@ -38,7 +38,7 @@ namespace PersonDatabaseConsoleUI
                 personController.DeletePerson(Convert.ToInt32(id));
                 Console.WriteLine($"Osoba s id:{id} byla odstraněna");
             }
-            catch (PlayerNotFoundException e)
+            catch (PersonNotFoundException e)
             {
                 Console.WriteLine(e.Message);
             }

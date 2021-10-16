@@ -1,4 +1,5 @@
-﻿using PersonDatabaseLogic.PersonLogic;
+﻿using PersonDatabaseLogic.DataAccess;
+using PersonDatabaseLogic.PersonLogic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,8 +50,15 @@ namespace PersonDatabaseWinForms
             {
                 if( MessageBox.Show($"Odstranit {selectedPerson.FullName}?","Odstranit osobu",MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    personController.DeletePerson(selectedPerson.Id);
-                    SetupList();
+                    try
+                    {
+                        personController.DeletePerson(selectedPerson.Id);
+                        SetupList();
+                    }
+                    catch(PersonNotFoundException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
             }
         }
