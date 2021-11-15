@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonDatabaseLogic", "Pers
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonDatabaseWinForms", "PersonDatabaseWinForms\PersonDatabaseWinForms.csproj", "{B134F9F0-0569-4BD0-81EB-D41D773F1426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonDatabaseWPF", "PersonDatabaseWPF\PersonDatabaseWPF.csproj", "{4EFB79A9-3C67-4AF7-927E-C1A6BC93C3B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonDatabaseWPF", "PersonDatabaseWPF\PersonDatabaseWPF.csproj", "{4EFB79A9-3C67-4AF7-927E-C1A6BC93C3B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonDatabaseWebApplication", "PersonDatabaseWebApplication\PersonDatabaseWebApplication.csproj", "{5F7ABF1F-2087-4E90-975B-4F52C6A656DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{4EFB79A9-3C67-4AF7-927E-C1A6BC93C3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EFB79A9-3C67-4AF7-927E-C1A6BC93C3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EFB79A9-3C67-4AF7-927E-C1A6BC93C3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7ABF1F-2087-4E90-975B-4F52C6A656DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7ABF1F-2087-4E90-975B-4F52C6A656DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7ABF1F-2087-4E90-975B-4F52C6A656DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7ABF1F-2087-4E90-975B-4F52C6A656DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

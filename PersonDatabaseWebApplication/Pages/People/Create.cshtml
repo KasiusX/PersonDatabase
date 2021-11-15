@@ -1,0 +1,20 @@
+﻿@page
+@model PersonDatabaseWebApplication.Pages.People.CreateModel
+@{
+	ViewData["Title"] = "Přidat osobu";
+}
+
+<h1>Přidat osobu</h1>
+<form method="post" autocomplete="off">
+	<span class="text-danger">@Model.errorMessage</span>
+	<div class="form-group">
+		<label asp-for="NewPerson.FirstName">Křestní Jméno</label>
+		<input asp-for="NewPerson.FirstName" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="NewPerson.LastName">Příjmení</label>
+		<input asp-for="NewPerson.LastName" class="form-control" />
+	</div>
+	<input type="submit" value="Uložit osobu" class="btn btn-success" />
+	<a asp-page="/Index" class="btn btn-danger">Zpátky</a>
+</form>

@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Osoby";
+}
+
+<h1>Osoby</h1>
+<a class="btn btn-success" asp-page="People/Create">Přidat osobu</a>
+
+<table class="table">
+    <thead>
+		<tr>
+			<th>@Html.DisplayNameFor(model => model.people[0].Id)</th>
+			<th>@Html.DisplayNameFor(model => model.people[0].FirstName)</th>
+			<th>@Html.DisplayNameFor(model => model.people[0].LastName)</th>
+		</tr>
+    </thead>
+	<tbody>
+	@foreach (var person in Model.people)
+        {
+		<tr>
+			<td>@Html.ValueFor(value => person.Id)</td>
+			<td>@Html.ValueFor(value => person.FirstName)</td>
+			<td>@Html.ValueFor(value => person.LastName)</td>
+			<td><a class="badge badge-danger" asp-page="People/Delete" asp-route-id="@person.Id">Odstranit</a></td>
+		</tr>
+        }
+	</tbody>
+</table>

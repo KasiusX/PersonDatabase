@@ -17,7 +17,15 @@ namespace PersonDatabaseLogic.PersonLogic
 
         private bool IsPersonValid(Person p)
         {
-            if(p.FirstName.Contains(':') || p.FirstName.Contains('|'))
+            if(p.FirstName == null)
+            {
+                throw new ValidationException("Jméno nesmí být prázdné.");
+            }
+            else if(p.LastName == null)
+            {
+                throw new ValidationException("Přijmení nesmí být prázdné.");
+            }
+            else if(p.FirstName.Contains(':') || p.FirstName.Contains('|'))
             {
                 throw new ValidationException("Jméno nesmí obsahovat znaky '|' a ':'.");
             }
